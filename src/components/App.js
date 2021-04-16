@@ -4,6 +4,7 @@ import PoliticianCard from "./PoliticianCard"
 import Politicians from "./Politicians";
 import SideBar from "./SideBar";
 import Watchlist from "./Watchlist";
+import { Grid } from "semantic-ui-react"
 
 function App() {
   const [politiciansArray, setPoliticiansArray] = useState([])
@@ -33,10 +34,16 @@ function App() {
   return (
     <div className="App">
       {/* These will use React Router as pages */}
-      <SideBar />
-      <Politicians politicianCardsArray={politicianCardsArray}/>
-      <Watchlist />
-      <PoliticianInfo />
+      <Grid>
+        <Grid.Column width={2}>
+          <SideBar />
+        </Grid.Column>
+        <Grid.Column width={14}>
+          <Politicians politicianCardsArray={politicianCardsArray}/>
+          <Watchlist />
+          <PoliticianInfo />
+          </Grid.Column>
+      </Grid>
     </div>
   );
 }

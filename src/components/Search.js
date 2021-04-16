@@ -1,6 +1,8 @@
 function Search() {
     return (
-        <h1>Search</h1>
+        <form>
+            <input placeholder="Search"></input>
+        </form>
     )
 }
 

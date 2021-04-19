@@ -1,12 +1,16 @@
 import Search from "./Search"
+import { NavLink } from "react-router-dom"
 
 function SideBar() {
     return (
-        <div classname="sidebar">
+        <div className="sidebar">
             <h1>App Name</h1>
             <Search />
-            <p>Link to Watchlist</p>
-            <p>Link to Politicians</p>
+            <nav>
+                <NavLink className="sidbar-btn" to="/">Watchlist</NavLink>
+                <br/>
+                <NavLink className="sidbar-btn" to="/politicians">Politicians</NavLink>
+            </nav>
         </div>
     )
 }

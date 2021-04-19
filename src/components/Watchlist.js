@@ -1,12 +1,12 @@
-import PoliticianCard from "./PoliticianCard"
+// import PoliticianCard from "./PoliticianCard"
 
-function Watchlist() {
+function Watchlist({watchedArrayPoliticianCards}) {
     return (
-        <>
+        <div>
             <h1>Watchlist</h1>
             
-            <PoliticianCard /> 
-        </>
+            {watchedArrayPoliticianCards}
+        </div>
     )
 }
 

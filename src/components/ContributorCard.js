@@ -1,6 +1,10 @@
-function ContributorCard() {
+function ContributorCard({ orgName, total, industry }) {
     return (
-        <h1>Contributor Card</h1>
+        <div className="contributor-card">
+            <h3>{orgName}</h3>
+            <p>Total contributions: ${total}</p>
+            <p>{industry}</p>
+        </div>
     )
 }
 

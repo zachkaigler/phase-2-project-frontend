@@ -8,60 +8,73 @@ import { Grid } from "semantic-ui-react"
 import { Switch, Route } from "react-router-dom";
 
 function App() {
+  // State variable set to mirror the current contents of the server
   const [politiciansArray, setPoliticiansArray] = useState([])
+  // State variable that toggles on Watchlist button click to reload the above state
+  // variable
   const [toggle, setToggle] = useState(false)
 
-    useEffect(() => {
-        fetch("http://localhost:4000/politicians")
-            .then(resp => resp.json())
-            .then(function(politicianServerData) {
-                setPoliticiansArray(politicianServerData)
-            })
-    }, [])
-
-    useEffect(() => {
+  // Initial fetch to set state of politiciansArray to match server
+  useEffect(() => {
       fetch("http://localhost:4000/politicians")
-            .then(resp => resp.json())
-            .then(function(politicianServerData) {
-                setPoliticiansArray(politicianServerData)
-            })
-    }, [toggle])
+          .then(resp => resp.json())
+          .then(function(politicianServerData) {
+              setPoliticiansArray(politicianServerData)
+          })
+  }, [])
 
-    function updatedIsWatched() {
-      setToggle(!toggle)
-    }
+  // Side effect that fires when a politician is added to the Watchlist and updates
+  // the politiciansArray to match the new value
+  useEffect(() => {
+    fetch("http://localhost:4000/politicians")
+          .then(resp => resp.json())
+          .then(function(politicianServerData) {
+              setPoliticiansArray(politicianServerData)
+          })
+  }, [toggle])
 
-    const politicianCardsArray = politiciansArray.map(function(politicianObj) {
-        return <PoliticianCard 
-                    key={politicianObj.id}
-                    id={politicianObj.id}
-                    politicianObj={politicianObj}
-                    name={politicianObj.name}
-                    party={politicianObj.party}
-                    district={politicianObj.district}
-                    image={politicianObj.image}
-                    contributorsArray={politicianObj.contributors}
-                    isWatched={politicianObj.isWatched}
-               />
-    })
+  // Callback function passed to PoliticianInfo that fires when the Watch button is clicked,
+  // triggering the side effect to run and update the politiciansArray state variable
+  // to match the new contents of the server
+  function updatedIsWatched() {
+    setToggle(!toggle)
+  }
 
-    const watchedListArray = politiciansArray.filter(function(politicianObj) {
-      return politicianObj.isWatched
-    })
-
-    const watchedArrayPoliticianCards = watchedListArray.map(function(politicianObj) {
+  // Generates an array of PoliticianCard components for each politician object on the server
+  const politicianCardsArray = politiciansArray.map(function(politicianObj) {
       return <PoliticianCard 
-                    key={politicianObj.id}
-                    id={politicianObj.id}
-                    politicianObj={politicianObj}
-                    name={politicianObj.name}
-                    party={politicianObj.party}
-                    district={politicianObj.district}
-                    image={politicianObj.image}
-                    contributorsArray={politicianObj.contributors}
-                    isWatched={politicianObj.isWatched}
-               />
-    })
+                  key={politicianObj.id}
+                  id={politicianObj.id}
+                  politicianObj={politicianObj}
+                  name={politicianObj.name}
+                  party={politicianObj.party}
+                  district={politicianObj.district}
+                  image={politicianObj.image}
+                  contributorsArray={politicianObj.contributors}
+                  isWatched={politicianObj.isWatched}
+              />
+  })
+
+  // Generates a watchedListArray by filtering out ouly the politician objects where the key
+  // of isWatched is set to true.
+  const watchedListArray = politiciansArray.filter(function(politicianObj) {
+    return politicianObj.isWatched
+  })
+
+  // Generates PoliticianCard components for each watched politician
+  const watchedArrayPoliticianCards = watchedListArray.map(function(politicianObj) {
+    return <PoliticianCard 
+                  key={politicianObj.id}
+                  id={politicianObj.id}
+                  politicianObj={politicianObj}
+                  name={politicianObj.name}
+                  party={politicianObj.party}
+                  district={politicianObj.district}
+                  image={politicianObj.image}
+                  contributorsArray={politicianObj.contributors}
+                  isWatched={politicianObj.isWatched}
+              />
+  })
 
   return (
     <div className="App">

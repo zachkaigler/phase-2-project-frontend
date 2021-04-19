@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 
 function PoliticianCard({ id, politicianObj, name, party, district, image, contributorsArray, isWatched}) {
-    // console.log(district)
     return (
         <Link to={`/politicianinfo/${id}`}>
             <div className="politician-card">

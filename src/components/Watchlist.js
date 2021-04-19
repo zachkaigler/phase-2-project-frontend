@@ -1,4 +1,4 @@
-// import PoliticianCard from "./PoliticianCard"
+
 
 function Watchlist({watchedArrayPoliticianCards}) {
     return (

@@ -2,7 +2,7 @@
 
 function Watchlist({watchedArrayPoliticianCards}) {
     return (
-        <div>
+        <div className="main-page" id="watchlist">
             <h1>Watchlist</h1>
             
             {watchedArrayPoliticianCards}

@@ -11,3 +11,58 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Test Styling Below */
+
+/* Center content on each of the three main pages */
+.main-page {
+  padding-top: 20px;
+  text-align: center;
+  margin-right: 50px;
+}
+
+/* Sidebar styling */
+.sidebar {
+  color: white;
+  border-width: 20px;
+  /* border: rgb(173, 109, 109); */
+  padding-top: 20px;
+  height: 100%;
+  text-align: center;
+  background-color: #592b75;
+}
+
+.sidebar a {
+  color: white;
+}
+
+/* Contributor card styling */
+div.contributor-card{
+  /* color: white; */
+  margin: 10px;
+  padding: 10px;
+  border: #592b75;
+  background-color: #d2c4db;
+  border-style: solid;
+  border-radius: 1px;
+}
+
+/* Contributor card list layout */
+ul.contributors-list{
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+div#politician-details{
+  margin-bottom: 20px;
+}
+
+div#politician-details button{
+  margin-bottom: 10px;
+}
+
+#contributions {
+  font-size: 16px;
+}

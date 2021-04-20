@@ -11,7 +11,7 @@ function App() {
   // State variable set to mirror the current contents of the server
   const [politiciansArray, setPoliticiansArray] = useState([])
   // State variable that toggles on Watchlist button click to reload the above state
-  // variable
+  // variable **
   const [toggle, setToggle] = useState(false)
 
   // Initial fetch to set state of politiciansArray to match server
@@ -24,7 +24,7 @@ function App() {
   }, [])
 
   // Side effect that fires when a politician is added to the Watchlist and updates
-  // the politiciansArray to match the new value
+  // the politiciansArray to match the new value **
   useEffect(() => {
     fetch("http://localhost:4000/politicians")
           .then(resp => resp.json())
@@ -35,7 +35,7 @@ function App() {
 
   // Callback function passed to PoliticianInfo that fires when the Watch button is clicked,
   // triggering the side effect to run and update the politiciansArray state variable
-  // to match the new contents of the server
+  // to match the new contents of the server **
   function updatedIsWatched() {
     setToggle(!toggle)
   }

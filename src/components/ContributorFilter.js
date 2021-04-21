@@ -1,11 +1,9 @@
-// import { useState } from "react"
 
 function ContributorFilter({ getFilterValue }) {
     
     function handleChange(e) {
         const value = e.target.value
         getFilterValue(value)
-        console.log(value)
     }
 
     return (

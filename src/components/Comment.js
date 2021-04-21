@@ -1,9 +1,17 @@
-function Comment({ name, comment}) {
+function Comment({ name, comment, id, getDeletedId }) {
+
+    function handleClick() {
+        fetch(`http://localhost:4000/comments/${id}`, {
+            method: "DELETE"
+        })
+        getDeletedId(id)
+    }
+
     return (
         <div className="comments" id="comment">
             <h4>{name}</h4>
             <p>{comment}</p>
-            <button>Delete</button>
+            <button onClick={handleClick}>Delete</button>
         </div>
     )
 }

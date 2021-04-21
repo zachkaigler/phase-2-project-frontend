@@ -60,6 +60,12 @@ function PoliticianInfo() {
             })
     }
 
+    function getDeletedId(id) {
+        setCommentsArray(commentsArray.filter(function(commentObj) {
+            return commentObj.id !== id
+        }))
+    }
+
     function getFilterValue(value) {
         setSelectedFilter(value)
     }
@@ -86,11 +92,14 @@ function PoliticianInfo() {
                     industry={contributorObj.industry}
                   />
             })
+        
         commentComponentArray = commentsArray.map(function(commentObj) {
             return <Comment 
                     key={commentObj.id}
+                    id={commentObj.id}
                     name={commentObj.commenterName}
                     comment={commentObj.comment}
+                    getDeletedId={getDeletedId}
                   />
         })
         politicianData.contributors.forEach(function(contributor) {

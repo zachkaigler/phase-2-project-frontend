@@ -33,6 +33,10 @@ code {
   position: sticky;
 }
 
+div.four.wide.column {
+  padding-bottom: 0px;
+}
+
 #search-form {
   margin-top: 15px;
   margin-bottom: 25px;

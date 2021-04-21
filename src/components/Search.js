@@ -16,8 +16,9 @@ function Search({politiciansArray}) {
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)} id="search-form">
             <input placeholder="Search Politicians" value={value} onChange={(e) => setValue(e.target.value)}></input>
+            <input type="submit" value="Go"/>
         </form>
     )
 }

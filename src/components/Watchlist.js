@@ -34,7 +34,9 @@ function Watchlist() {
         <div className="main-page" id="watchlist">
             <h1>Watchlist</h1>
             
-            {watchedArrayPoliticianCards}
+            <ul id="watchlist-ul">
+                {watchedArrayPoliticianCards}
+            </ul>
         </div>
     )
 }

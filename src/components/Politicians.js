@@ -56,7 +56,7 @@ function Politicians() {
             <h1>Politicians</h1>
 
             <PoliticianFilter getPartyValue={getPartyValue} getStateValue={getStateValue}/>
-            <ul>
+            <ul id="politicians-ul">
                 {politicianCardsArray}
             </ul>            
         </div>

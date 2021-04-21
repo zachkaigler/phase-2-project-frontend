@@ -106,13 +106,13 @@ function PoliticianInfo() {
         return (
             <div className="main-page" id="politician-info">
                 <h1>{politicianData.name}</h1>
-                <img src={politicianData.image} alt={politicianData.name} style={{width: "400px"}}/>
+                <img src={politicianData.image} alt={politicianData.name} style={{width: "400px"}} id="politician-info-img"/>
                 <br/>
                 <br/>
                 <div id="politician-details">
                     {politicianData.isWatched ? 
-                        <button onClick={handleClick}>Unwatch</button> :
-                        <button onClick={handleClick}>Watch</button>
+                        <button onClick={handleClick} id="btn-unwatch">Unwatch</button> :
+                        <button onClick={handleClick} id="btn-watch">WATCH</button>
                     }
                     <p>
                         <strong>Party:</strong> {politicianData.party}

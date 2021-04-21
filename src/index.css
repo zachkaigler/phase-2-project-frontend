@@ -33,9 +33,32 @@ code {
   position: sticky;
 }
 
-.sidebar a {
-  color: white;
+#search-form {
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
+
+#search-form input {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.sidebar a {
+  margin-top: 15px;
+  padding: 10px;
+  color: white;
+  background-color: #b783d7;
+  border: solid;
+  border-color: white;
+  border-width: 1px;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 18px;
+}
+
+/* .sidebar a.active {
+  background-color: #956baf
+} */
 
 /* Contributor card styling */
 div.contributor-card{
@@ -54,6 +77,7 @@ ul.contributors-list{
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
+  margin-bottom: 50px;
 }
 
 div#politician-details{
@@ -64,6 +88,10 @@ div#politician-details button{
   margin-bottom: 10px;
 }
 
+div#contributor-details {
+  margin-top: 50px;
+}
+
 #contributions {
   font-size: 16px;
 }
@@ -72,3 +100,92 @@ div#politician-details button{
   top: 0;
   position: sticky;
 }
+
+div#comment.comments {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border: solid;
+  border-color: black;
+  border-width: 1px;
+  background-color: rgb(243, 243, 243);
+  width: 75%;
+  margin-left: 13%;
+  margin-right: -13%;
+}
+
+div#comment-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+form.comments input {
+  margin: 5px;
+}
+
+button#btn-watch {
+  /* height: 40px;
+  width: 70px; */
+  padding: 10px 10px;
+  background-color: #592b75;
+  border-color: #b783d7;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+button#btn-unwatch {
+  padding: 10px 10px;
+  /* text-align: left;
+  height: 40px;
+  width: 70px; */
+  font-size: 15px;
+}
+
+ul#politicians-ul {
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+ul#watchlist-ul {
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+div.politician-card {
+  margin: 10px;
+  padding: 10px;
+  /* padding-left: 15px;
+  padding-right: 15px; */
+  border: #592b75;
+  background-color: #f1e8f7;
+  border-style: solid;
+  border-width: 2px;
+  color: #592b75;
+}
+
+.politician-img {
+  border: #943dca;
+  border-style: solid;
+  border-width: 2px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#politician-info-img {
+  border: #592b75;
+  border-style: solid;
+  border-width: 2px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+

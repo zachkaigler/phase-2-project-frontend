@@ -5,7 +5,7 @@ function PoliticianCard({ id, politicianObj, name, party, district, image, contr
         <Link to={`/politicianinfo/${id}`}>
             <div className="politician-card">
                 <h3>{name}</h3>
-                <img src={image} alt={name} style={{width: "100px"}}/>
+                <img src={image} alt={name} style={{height: "150px"}} className="politician-img"/>
                 <p>{party} - {district}</p>
             </div>    
         </Link>

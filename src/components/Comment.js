@@ -3,6 +3,7 @@ function Comment({ name, comment}) {
         <div className="comments" id="comment">
             <h4>{name}</h4>
             <p>{comment}</p>
+            <button>Delete</button>
         </div>
     )
 }

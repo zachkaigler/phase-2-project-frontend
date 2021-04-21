@@ -15,7 +15,7 @@ function SideBar() {
 
     return (
         <div className="sidebar" id="side-bar-sticky">
-            <h1>App Name</h1>
+            <img src="https://i.imgur.com/mEwNslf.png" style={{ width : 225 }} alt="logo" />
             <Search politiciansArray={politiciansArray}/>
             <nav>
                 <NavLink className="sidbar-btn" to="/">Watchlist</NavLink>

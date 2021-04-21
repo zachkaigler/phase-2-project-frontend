@@ -1,7 +1,16 @@
-function ContributorFilter() {
+// import { useState } from "react"
+
+function ContributorFilter({ getFilterValue }) {
+    
+    function handleChange(e) {
+        const value = e.target.value
+        getFilterValue(value)
+        console.log(value)
+    }
+
     return (
         <div className="filter" id="contributor-filter">
-            <select className="filter-dropdown" id="industry">
+            <select className="filter-dropdown" id="industry" onChange={(e) => handleChange(e)}>
                 <option value="All">Filter by industry</option>
                 <option value="Agriculture">Agriculture</option>
                 <option value="Associations">Associations</option>

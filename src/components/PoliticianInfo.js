@@ -5,12 +5,11 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import Comment from "./Comment";
 
-function PoliticianInfo( {updatedIsWatched} ) {
+function PoliticianInfo() {
     const [politicianData, setPoliticianData] = useState({})
     const [isLoaded, setIsLoaded] = useState(false)
-    // State variable to toggle text of Watch button **
-    const [isWatched, setIsWatched] = useState(politicianData.isWatched)
     const [commentsArray, setCommentsArray] = useState([])
+    const [selectedFilter, setSelectedFilter] = useState("All")
     const params = useParams()
 
     // Sets in state the politician data corresponding to the page we are on in
@@ -22,33 +21,26 @@ function PoliticianInfo( {updatedIsWatched} ) {
             .then(function(politicianServerData) {
                 setPoliticianData(politicianServerData)
                 setIsLoaded(true)
-                setIsWatched(politicianServerData.isWatched)
                 setCommentsArray(politicianServerData.comments)
             })
     }, [params.id])
 
-    // Makes a PATCH request to the server when isWatched is updated, and updates the value to match **
-    useEffect(() => {
+    // Passed down from App - fires when isWatched is changed and flips the toggle
+    // state variable above to tell the politiciansArray state variable to update **
+    function handleClick() {
         fetch(`http://localhost:4000/politicians/${params.id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"
             },
             body: JSON.stringify({
-                isWatched: isWatched
+                isWatched: !politicianData.isWatched
             })
         })
         .then(resp => resp.json())
         .then(function(updatedPoliticianObj) {
-        setPoliticianData(updatedPoliticianObj)
+            setPoliticianData(updatedPoliticianObj)
         })
-    }, [params.id, isWatched])
-
-    // Passed down from App - fires when isWatched is changed and flips the toggle
-    // state variable above to tell the politiciansArray state variable to update **
-    function handleClick() {
-        setIsWatched(!isWatched)
-        updatedIsWatched()
     }
 
     // Passed down to CommentSection. Recieves the newComment object and posts it to
@@ -68,13 +60,25 @@ function PoliticianInfo( {updatedIsWatched} ) {
             })
     }
 
+    function getFilterValue(value) {
+        setSelectedFilter(value)
+    }
+
     // If the page is loaded, we map and create an array of ContributorCard components for each
     // contributor in the politician's database. Otherwise it is just an empty array.
     let contributorCardArray
     let commentComponentArray
     let sum = 0
     if (isLoaded) {
-        contributorCardArray = politicianData.contributors.map(function(contributorObj) {
+        const filteredContributors = politicianData.contributors.filter(function(contributorObj) {
+            if (selectedFilter === "All") {
+                return contributorObj
+            } else {
+                return contributorObj.industry === selectedFilter
+            }
+        })
+
+        contributorCardArray = filteredContributors.map(function(contributorObj) {
             return <ContributorCard 
                     key={contributorObj.orgName}
                     orgName={contributorObj.orgName}
@@ -106,7 +110,7 @@ function PoliticianInfo( {updatedIsWatched} ) {
                 <br/>
                 <br/>
                 <div id="politician-details">
-                    {isWatched ? 
+                    {politicianData.isWatched ? 
                         <button onClick={handleClick}>Unwatch</button> :
                         <button onClick={handleClick}>Watch</button>
                     }
@@ -120,7 +124,7 @@ function PoliticianInfo( {updatedIsWatched} ) {
                 </div>
                 <div id="contributor-details">
                     <h3>Contributor Details</h3>
-                    <ContributorFilter />
+                    <ContributorFilter getFilterValue={getFilterValue}/>
                     <ul className="contributors-list">
                         {contributorCardArray}
                     </ul>
@@ -130,7 +134,7 @@ function PoliticianInfo( {updatedIsWatched} ) {
         )
     } else {
         return (
-            <h1>Loading...</h1>
+            null
         )
     }
 }

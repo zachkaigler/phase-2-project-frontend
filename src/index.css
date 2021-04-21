@@ -27,9 +27,10 @@ code {
   border-width: 20px;
   /* border: rgb(173, 109, 109); */
   padding-top: 20px;
-  height: 100%;
+  height: 100vh;
   text-align: center;
   background-color: #592b75;
+  position: sticky;
 }
 
 .sidebar a {
@@ -65,4 +66,9 @@ div#politician-details button{
 
 #contributions {
   font-size: 16px;
+}
+
+#side-bar-sticky{
+  top: 0;
+  position: sticky;
 }

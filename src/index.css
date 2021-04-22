@@ -14,7 +14,7 @@ code {
 
 /* Test Styling Below */
 
-/* Center content on each of the three main pages */
+/* Center content on each of the main pages */
 .main-page {
   padding-top: 20px;
   text-align: center;
@@ -33,10 +33,6 @@ code {
   position: sticky;
 }
 
-div.four.wide.column {
-  padding-bottom: 0px;
-}
-
 #search-form {
   margin-top: 15px;
   margin-bottom: 25px;
@@ -47,7 +43,7 @@ div.four.wide.column {
   margin-right: 2px;
 }
 
-.sidebar a {
+.sidbar-btn {
   margin-top: 15px;
   padding: 10px;
   color: white;
@@ -58,6 +54,11 @@ div.four.wide.column {
   border-radius: 3px;
   display: inline-block;
   font-size: 18px;
+}
+
+.sidebar div a:hover {
+  color: white;
+  background-color: #9066aa;
 }
 
 /* .sidebar a.active {
@@ -103,6 +104,7 @@ div#contributor-details {
 #side-bar-sticky{
   top: 0;
   position: sticky;
+  /* width: 300px; */
 }
 
 div#comment.comments {
@@ -177,7 +179,7 @@ div.politician-card {
 }
 
 .politician-img {
-  border: #943dca;
+  border: #592b75;
   border-style: solid;
   border-width: 2px;
   margin-left: 15px;
@@ -192,4 +194,34 @@ div.politician-card {
   margin-right: 15px;
 }
 
+#splash img{
+  margin-top: 150px;
+  margin-bottom: 30px;
+}
 
+#splash div h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+#splash div h3 span {
+  color: #592b75;
+}
+
+#splash div p {
+  font-size: 15px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+/* div.twelve.wide.column {
+  padding-bottom: 0px;
+}
+
+div.four.wide.column {
+  padding-bottom: 0px;
+} */
+
+.ui.grid>.column:not(.row) {
+  padding-bottom: 0px;
+}

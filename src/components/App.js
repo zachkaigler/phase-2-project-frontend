@@ -5,6 +5,7 @@ import SideBar from "./SideBar";
 import Watchlist from "./Watchlist";
 import { Grid } from "semantic-ui-react"
 import { Switch, Route } from "react-router-dom";
+import Splash from "./Splash";
 
 function App() {
   
@@ -17,6 +18,9 @@ function App() {
         <Grid.Column width={12}>
         <Switch>
           <Route exact path="/">
+            <Splash />
+          </Route>
+          <Route exact path="/watchlist">
             <Watchlist />
           </Route>
           <Route exact path="/politicians">

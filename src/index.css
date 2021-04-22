@@ -194,6 +194,18 @@ div.politician-card {
   margin-right: 15px;
 }
 
+#politician-info a {
+  color: #592b75;
+}
+
+#politician-info a:hover {
+  color: #b783d7;
+}
+
+#politician-info div.contributor-card a h3 {
+  margin-bottom: 15px;
+}
+
 #splash img{
   margin-top: 150px;
   margin-bottom: 30px;
@@ -225,3 +237,4 @@ div.four.wide.column {
 .ui.grid>.column:not(.row) {
   padding-bottom: 0px;
 }
+

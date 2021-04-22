@@ -10,6 +10,8 @@ function PoliticianFilter({getPartyValue, getStateValue}) {
             <select className="filter-dropdown" id="state" onChange={(e) => getStateValue(e.target.value)}>
                 <option value="All">State</option>
                 <option value="GA">Georgia</option>
+                <option value="MI">Michigan</option>
+                <option value="NY">New York</option>
             </select>
         </div>
     )

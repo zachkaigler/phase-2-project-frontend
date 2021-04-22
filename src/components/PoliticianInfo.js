@@ -90,6 +90,7 @@ function PoliticianInfo() {
                     orgName={contributorObj.orgName}
                     total={contributorObj.total}
                     industry={contributorObj.industry}
+                    orgUrl={contributorObj.orgUrl}
                   />
             })
         
@@ -127,6 +128,8 @@ function PoliticianInfo() {
                         <strong>Party:</strong> {politicianData.party}
                         <br/>
                         <strong>District:</strong> {politicianData.district}
+                        <br/>
+                        <strong><a href={politicianData.url} target="_blank" rel="noreferrer">Website</a></strong>
                         <br/>
                         <strong>Total contributions:</strong> ${sum}
                     </p>

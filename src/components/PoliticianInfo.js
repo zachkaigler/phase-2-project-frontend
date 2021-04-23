@@ -22,6 +22,7 @@ function PoliticianInfo() {
                 setPoliticianData(politicianServerData)
                 setIsLoaded(true)
                 setCommentsArray(politicianServerData.comments)
+                setSelectedFilter("All")
             })
     }, [params.id])
 
